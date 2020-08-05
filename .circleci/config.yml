@@ -30,7 +30,7 @@ jobs:
           command: cd functions
       - node/install-packages:
           with-cache: true
-          app-dir: ./
+          app-dir: ./functions
       - run:
           name: Deploy Cloud Functions
           command: ./node_modules/.bin/firebase deploy --only functions --token "$FIREBASE_TOKEN"
