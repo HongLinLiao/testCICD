@@ -31,8 +31,8 @@ workflows:
     jobs:
       - angular-build
       - firebase-deploy:
-        requires:
-          - angular-build
+          requires:
+            - angular-build
         # filters:
         #   branches:
         #     only: master
