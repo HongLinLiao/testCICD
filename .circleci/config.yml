@@ -30,7 +30,7 @@ workflows:
     - angular-build
     - firebase-deploy:
       requires:
-        - angular-build-job
+        - angular-build
       filters:
         branches:
           only: master
