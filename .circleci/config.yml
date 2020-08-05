@@ -26,6 +26,18 @@ jobs:
           name: Build Prod Code
           command: npm run build
       - run:
+          name: Checkout to functions folder
+          command: cd functions
+      - node/install-packages:
+          with-cache: true
+          app-dir: ./
+      - run:
+          name: Deploy Cloud Functions
+          command: ./node_modules/.bin/firebase deploy --only functions --token "$FIREBASE_TOKEN"
+      - run:
+          name: Checkout to root folder
+          command: cd ..
+      - run:
           name: Deploy Prod Code
           command: ./node_modules/.bin/firebase deploy --only hosting --token "$FIREBASE_TOKEN"
 
