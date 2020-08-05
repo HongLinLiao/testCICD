@@ -26,12 +26,11 @@ jobs:
           name: Deploy Prod Code
           command: firebase deploy --only hosting --token=$FIREBASE_DEPLOY_TOKEN
 workflows:
-    -build:
-      jobs:
-        - angular-build
-        - firebase-deploy:
-              requires:
-                - angular-build-job
-              filters:
-                branches:
-                  only: master
+  jobs:
+    - angular-build
+    - firebase-deploy:
+      requires:
+        - angular-build-job
+      filters:
+        branches:
+          only: master
