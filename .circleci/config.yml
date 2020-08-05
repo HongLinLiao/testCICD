@@ -23,6 +23,9 @@ jobs:
           with-cache: true
           app-dir: ./
       - run:
+          name: Install Firebase-Tools Packages Global
+          command: npm install -g firebase-tools
+      - run:
           name: Deploy Prod Code
           command: firebase deploy --only hosting --token=$FIREBASE_DEPLOY_TOKEN
 
