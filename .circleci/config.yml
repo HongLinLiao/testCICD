@@ -10,7 +10,7 @@ jobs:
       - checkout
       - node/install-packages:
           with-cache: true
-          app-dir: ~/
+          app-dir: ./
       - run:
           name: Build Prod Code
           command: npm run build
@@ -21,7 +21,7 @@ jobs:
       - checkout
       - node/install-packages:
           with-cache: true
-          app-dir: ~/
+          app-dir: ./
       - run:
           name: Deploy Prod Code
           command: firebase deploy --only hosting --token=$FIREBASE_DEPLOY_TOKEN
